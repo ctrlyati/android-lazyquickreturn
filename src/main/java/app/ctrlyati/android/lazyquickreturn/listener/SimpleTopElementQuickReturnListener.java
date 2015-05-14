@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import com.superscores.soccer.R;
-import com.superscores.soccer.quickreturn.QuickReturnHelper;
+import app.ctrlyati.android.lazyquickreturn.QuickReturnHelper;
+import app.ctrlyati.android.lazyquickreturn.R;
 
 /**
  * Created by Yati on 05/14/2015.
