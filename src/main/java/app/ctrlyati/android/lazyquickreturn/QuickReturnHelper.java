@@ -19,8 +19,10 @@ public class QuickReturnHelper {
 
     private ArrayList<QuickReturnAction> mActions = new ArrayList<>();
 
-    public enum Direction{
-        UP, DOWN, NONE
+    public enum Direction {
+        UP,
+        DOWN,
+        NONE
     }
 
     public QuickReturnHelper(Context context, View observeView) {
@@ -31,7 +33,6 @@ public class QuickReturnHelper {
 
             private MotionEvent.PointerCoords position = new MotionEvent.PointerCoords();
 
-
             float lastY = Float.MIN_VALUE;
             float up = 0f;
             float down = 0f;
@@ -39,9 +40,9 @@ public class QuickReturnHelper {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
-                event.getPointerId(event.getPointerCount()-1);
+                event.getPointerId(event.getPointerCount() - 1);
 
-                if(event.getAction() == MotionEvent.ACTION_UP){
+                if (event.getAction() == MotionEvent.ACTION_UP) {
                     lastY = Float.MIN_VALUE;
                     up = 0f;
                     down = 0f;
@@ -50,19 +51,18 @@ public class QuickReturnHelper {
 
                 float y = event.getY();
 
-                if(lastY==Float.MIN_VALUE){
+                if (lastY == Float.MIN_VALUE) {
                     lastY = y;
                 }
 
-                if(lastY > y){
+                if (lastY > y) {
                     up = 0f;
                     down += lastY - y;
 
                     notifyQuickReturn(Direction.DOWN, down);
-                }else if(lastY < y){
+                } else if (lastY < y) {
                     down = 0f;
                     up += y - lastY;
-
 
                     notifyQuickReturn(Direction.UP, up);
                 }
@@ -74,7 +74,7 @@ public class QuickReturnHelper {
         });
     }
 
-    public void registerAction(QuickReturnListener listener){
+    public void registerAction(QuickReturnListener listener) {
         mActions.add(new QuickReturnAction(listener));
     }
 
@@ -86,11 +86,10 @@ public class QuickReturnHelper {
             this.quickReturnActionListener = quickReturnActionListener;
         }
 
-
     }
 
-    public void notifyQuickReturn(Direction direction, float scrollY){
-        for (QuickReturnAction action : mActions){
+    public void notifyQuickReturn(Direction direction, float scrollY) {
+        for (QuickReturnAction action : mActions) {
             action.quickReturnActionListener.onScroll(direction, scrollY);
         }
     }

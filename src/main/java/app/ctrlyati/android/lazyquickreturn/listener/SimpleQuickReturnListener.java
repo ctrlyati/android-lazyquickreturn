@@ -5,8 +5,8 @@ import app.ctrlyati.android.lazyquickreturn.QuickReturnHelper;
 /**
  * Created by Yati on 05/14/2015.
  *
- * don't forget to call setShowing to true when target is showing and setShowing to false when the target is not showing
- *
+ * don't forget to call setShowing to true when target is showing and setShowing to false when the
+ * target is not showing
  */
 public abstract class SimpleQuickReturnListener implements QuickReturnListener {
 
@@ -17,11 +17,14 @@ public abstract class SimpleQuickReturnListener implements QuickReturnListener {
 
     private boolean mIsShowing = true;
 
-    public SimpleQuickReturnListener(float scrollThreshold, QuickReturnHelper.Direction showDirection) {
+    public SimpleQuickReturnListener(float scrollThreshold,
+            QuickReturnHelper.Direction showDirection) {
         mScrollThreshold = scrollThreshold;
         mShowDirection = showDirection;
     }
-    public SimpleQuickReturnListener(float scrollThreshold, QuickReturnHelper.Direction showDirection, boolean isShowing) {
+
+    public SimpleQuickReturnListener(float scrollThreshold,
+            QuickReturnHelper.Direction showDirection, boolean isShowing) {
         mScrollThreshold = scrollThreshold;
         mShowDirection = showDirection;
         mIsShowing = isShowing;
@@ -36,8 +39,8 @@ public abstract class SimpleQuickReturnListener implements QuickReturnListener {
             mIsShowing = true;
             mCurrentDirection = direction;
 
-        } else if (direction == QuickReturnHelper.Direction.DOWN && scrollY >
-                mScrollThreshold && mCurrentDirection != direction && mIsShowing) {
+        } else if (direction == QuickReturnHelper.Direction.DOWN && scrollY > mScrollThreshold &&
+                mCurrentDirection != direction && mIsShowing) {
 
             onHide();
             mIsShowing = false;
@@ -46,13 +49,14 @@ public abstract class SimpleQuickReturnListener implements QuickReturnListener {
     }
 
     public abstract void onShow();
+
     public abstract void onHide();
 
-    public void setShowing(boolean isShowing){
+    public void setShowing(boolean isShowing) {
         mIsShowing = isShowing;
     }
 
-    public boolean isShowing(){
+    public boolean isShowing() {
         return mIsShowing;
     }
 
