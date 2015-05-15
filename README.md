@@ -14,7 +14,7 @@ public class someClass {
     //...
     public void useQuickReturn(){
         QuickReturnHelper qrHelper = new QuickReturnHelper(mContext, mObserverView);
-        QuickReturnListner qrListener = new SimpleTopElementQuickReturnListener(mQuickReturnView, mContext)
+        QuickReturnListner qrListener = new SimpleTopElementQuickReturnListener(mQuickReturnView, mContext);
         qrHelper.registerAction(qrListener);
     
     }
