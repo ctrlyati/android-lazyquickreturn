@@ -90,7 +90,7 @@ public class QuickReturnHelper {
 
     public void notifyQuickReturn(Direction direction, float scrollY) {
         for (QuickReturnAction action : mActions) {
-            action.quickReturnActionListener.onScroll(direction, scrollY);
+            action.quickReturnActionListener.onScroll(mObserveView, direction, scrollY);
         }
     }
 }

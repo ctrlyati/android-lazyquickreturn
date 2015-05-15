@@ -1,5 +1,8 @@
 package app.ctrlyati.android.lazyquickreturn.listener;
 
+import android.support.v4.view.ViewCompat;
+import android.view.View;
+
 import app.ctrlyati.android.lazyquickreturn.QuickReturnHelper;
 
 /**
@@ -31,7 +34,18 @@ public abstract class SimpleQuickReturnListener implements QuickReturnListener {
     }
 
     @Override
-    public void onScroll(QuickReturnHelper.Direction direction, float scrollY) {
+    public void onScroll(View view, QuickReturnHelper.Direction direction, float scrollY) {
+
+        if (!ViewCompat.canScrollVertically(view,
+                (int) mScrollThreshold) || !ViewCompat.canScrollVertically(view,
+                -(int) mScrollThreshold)) {
+            if (!mIsShowing) {
+                onShow();
+                mIsShowing = true;
+            }
+            return;
+        }
+
         if (direction == mShowDirection && scrollY > mScrollThreshold &&
                 mCurrentDirection != direction && !mIsShowing) {
 

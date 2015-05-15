@@ -27,6 +27,7 @@ public class SimpleTopElementQuickReturnListener extends SimpleQuickReturnListen
         mTarget = target;
 
 
+
         mExitAnimation = AnimationUtils.loadAnimation(context.getApplicationContext(), R.anim.abc_slide_out_top);
         mExitAnimation.setAnimationListener(new Animation.AnimationListener() {
             @Override
