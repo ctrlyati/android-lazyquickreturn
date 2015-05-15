@@ -2,7 +2,7 @@
 ##introduction
 Do easy Quick Return with this project
 
-![Image of LazyQuickReturn](http://dev.ctrlyati.in.th/lazyQuickReturn/lazyQuickReturn.gif)
+![Image of LazyQuickReturn](http://dev.ctrlyati.in.th/lazyQuickReturn/lazyQuickReturn.gif) 
 
 ##limitation
 The observe class cannot `setOnTouchListener()` because QuickReturnHelper will `setOnTouchListener()` on it.
