@@ -42,6 +42,7 @@ public abstract class SimpleQuickReturnListener implements QuickReturnListener {
             if (!mIsShowing) {
                 onShow();
                 mIsShowing = true;
+                mCurrentDirection = mShowDirection;
             }
             return;
         }
